@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    /* Перенаправлення на мобільну версію для телефонів.
+       Щоб примусово відкрити десктоп-версію — додай ?desktop до адреси. */
+    (function () {
+      var isPhone = /Android|iPhone|iPod|Windows Phone|webOS|BlackBerry|Opera Mini|IEMobile/i.test(navigator.userAgent)
+        || window.innerWidth < 760;
+      if (isPhone && location.search.indexOf('desktop') === -1) {
+        location.replace('mobile.html');
+      }
+    })();
+  </script>
   <title>AGATA CRM — CRM для косметологічних клінік</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
